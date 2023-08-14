@@ -1,0 +1,15 @@
+<h1>NEW GAME</h1>
+<div class="py-3">
+<% @letters.each do |letter| %>
+    <%# <div class="col"> %>
+       <%= letter %>
+    <%# </div> %>
+<% end %>
+</div>
+
+<form action="/score" method="post" data-turbo="false">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<%= hidden_field_tag :letters, @letters %>
+  <label for="word">What is the longest word you can find?</label>
+  <input type="text" id="word" name="word" value="<%= params[:word] %>"><br><br>
+</form>
